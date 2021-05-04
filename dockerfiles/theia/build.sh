@@ -46,7 +46,7 @@ if [[ -z "$DOCKER_BUILD_TARGET" ]]; then
   LABEL_CONTENT=$(cat "${base_dir}"/theia_artifacts/cdn.json || true 2>/dev/null)
   if [ -n "${LABEL_CONTENT}" ]; then
     echo "Adding the CDN label..."
-    docker buildx build --load --platform linux/amd64,linux/arm64  --label che-plugin.cdn.artifacts="$(echo ${LABEL_CONTENT} | sed 's/ //g')" -t "${IMAGE_NAME}-with-label" -<<EOF
+    docker buildx build --load --platform linux/arm64  --label che-plugin.cdn.artifacts="$(echo ${LABEL_CONTENT} | sed 's/ //g')" -t "${IMAGE_NAME}-with-label" -<<EOF
 FROM ${IMAGE_NAME}
 EOF
     docker tag "${IMAGE_NAME}-with-label" "${IMAGE_NAME}"
