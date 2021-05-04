@@ -33,6 +33,8 @@ jobs:
         CDN_PREFIX: https://static.developers.redhat.com/che/theia_artifacts/
         MONACO_CDN_PREFIX: https://cdn.jsdelivr.net/npm/
         DOCKER_TARGET_PLATFORM: linux/arm64
+        GITHUB_TOKEN: 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
+       
     - name: Set-up npmjs auth token
       run: printf "//registry.npmjs.org/:_authToken=${{ secrets.CHE_NPM_AUTH_TOKEN }}\n" >> ~/.npmrc
     - name: Publish packages to npmjs
