@@ -47,7 +47,7 @@ init() {
   BOLD='\033[1m'
   UNDERLINE='\033[4m'
 
-  ORGANIZATION="eclipse"
+  ORGANIZATION="odidev"
   PREFIX="che"
   TAG="next"
   DRY_RUN=false
@@ -218,7 +218,7 @@ build_image() {
   done
 
   if ! dry_run; then
-    cd "${DIR}" && docker build --cache-from ${IMAGE_NAME} -f ${DIR}/.Dockerfile -t ${IMAGE_NAME} ${BUILD_ARGS} ${DOCKER_BUILD_TARGET} .
+    cd "${DIR}" && docker buildx build --push --platform linux/arm64,linux/amd64 --cache-from ${IMAGE_NAME} -f ${DIR}/.Dockerfile -t ${IMAGE_NAME} ${BUILD_ARGS} ${DOCKER_BUILD_TARGET} .
     rm ${DIR}/.Dockerfile
   fi
   
