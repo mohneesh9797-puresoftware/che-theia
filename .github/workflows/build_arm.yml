@@ -28,7 +28,7 @@ jobs:
     - name: Build and publish images
       run: |
         docker image prune -a -f
-        ./build.sh --root-yarn-opts:--ignore-scripts --dockerfile:Dockerfile.alpine --push
+        ./build.sh --root-yarn-opts:--ignore-scripts --dockerfile:Dockerfile.alpine
       env:
         CDN_PREFIX: https://static.developers.redhat.com/che/theia_artifacts/
         MONACO_CDN_PREFIX: https://cdn.jsdelivr.net/npm/
