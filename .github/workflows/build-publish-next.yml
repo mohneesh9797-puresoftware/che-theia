@@ -35,7 +35,6 @@ jobs:
         docker image prune -a -f
         ./build.sh --root-yarn-opts:--ignore-scripts --dockerfile:Dockerfile.alpine --push
       env:
-        GITHUB_TOKEN: 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
         CDN_PREFIX: https://static.developers.redhat.com/che/theia_artifacts/
         MONACO_CDN_PREFIX: https://cdn.jsdelivr.net/npm/
         DOCKER_TARGET_PLATFORM: ""
